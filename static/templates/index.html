@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Below fetches name from the Rust web server -->
+    <title>{{name}}</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+    body {
+      margin: 0;
+    }
+    
+    /* Style the header */
+    .header {
+      background-color: #f1f1f1;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .w3-third {
+        background-color: Color(rgb(82, 91, 94));
+        box-sizing: border-box;
+    }
+
+    </style>
+
+    <script>
+        function submitEmail() {
+            var x = document.getElementsByClassName("form-class");
+            
+        }
+
+        $(document).ready(function() {
+            $("button").click(function() {
+                $.post("demo_test_post.asp",
+                {
+                    name: "Donald Duck",
+                    city: "Duckburg"
+                },
+                function(data,status){
+                    alert("Data: " + data + "\nStatus: " + status);
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <!-- Below are just hard coded examples to show how it should look like. 
+    {{name}} is fetching a variable from the Rust web server, in the future
+    we should fetch entire profiles, but for now it's mostly hard coded -->
+
+    <div class="header">
+        <h1>{{name}}</h1>
+    </div>
+
+    <p>{{name}} helps bridge creators with enthusiasts looking to 1-up their homes.</p>
+    <div class="w3-row-padding">
+        <div class="w3-third">
+          <h2>Alice</h2>
+          <p>- Profession: Carpentry. 5 years of work experience</p>
+          <p>Is looking to work on smaller 1-2 day projects.</p>
+        </div>
+      
+        <div class="w3-third">
+          <h2>Bob</h2>
+          <p>- Profession: Artist. 
+             - Experience: 5 years.
+          </p> 
+          <p>Is looking to work on long term projects for 4-6 months.</p>
+        </div>
+      
+        <div class="w3-third">
+          <h2>Charlie</h2>
+          <p>- Jewelry Craftsman</p>
+          <p>- Experience: 5 years
+          is looking for 1-2 week projects to work on.</p>
+        </div>
+      </div>
+
+      <h3>Submit your E-mail to stay up to news!</h3>
+      <form class="submit-email">
+
+        <input type="text" name="email" class="form-class"/><br/>
+        <button onclick="submitEmail()">Click me</button> 
+      </form>
+
+</body>
+</html>
+
