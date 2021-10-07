@@ -12,7 +12,6 @@
     Name of Domain: N/A
 
     Technologies (RUST): Actix, handlebars (html), Diesel for database
-
 */
 
 #[macro_use]
@@ -23,8 +22,6 @@ use std::io;
 
 use handlebars::Handlebars;
 
-
-
 #[get("/")]
 async fn index(hb: web::Data<Handlebars<'_>>) -> HttpResponse {
     let data = json!({
@@ -34,7 +31,6 @@ async fn index(hb: web::Data<Handlebars<'_>>) -> HttpResponse {
 
     HttpResponse::Ok().body(body)
 }
-
 
 #[actix_web::main]
 async fn main() -> io::Result<()> {
